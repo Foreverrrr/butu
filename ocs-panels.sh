@@ -23,22 +23,13 @@ vps="aneka";
 if [[ $vps = "zvur" ]]; then
 	source="http://scripts.gapaiasa.com"
 else
-	source="https://raw.githubusercontent.com/r38865/VPS/master/Update"
+	source="https://raw.githubusercontent.com/Foreverrrr/butu/master"
 fi
 
 # go to root
 cd
 
-MYIP=$(wget -qO- ipv4.icanhazip.com);
 
-# check registered ip
-wget -q -O "IP" "$source/OCSP/IP.txt"
-if ! grep -w -q $MYIP IP; then
-	echo "Maaf, hanya IP yang terdaftar yang bisa menggunakan script ini!"
-	echo "Hubungi: Yuri Bhuana (fb.com/youree82 atau 0858 1500 2021)"
-	rm -f /root/IP
-	exit
-fi
 
 #https://github.com/adenvt/OcsPanels/wiki/tutor-debian
 
