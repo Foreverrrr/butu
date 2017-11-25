@@ -85,6 +85,17 @@ vnstat -u -i $ether
 service vnstat restart
 
 
+# text gambar
+apt-get install boxes
+
+# color text
+cd
+rm -rf /root/.bashrc
+wget -O /root/.bashrc "https://raw.githubusercontent.com/fluxo7/m.e.n.u/master/method1/.bashrc"
+
+# install lolcat
+sudo apt-get -y install ruby
+sudo gem install lolcat
 
 # install webserver
 cd
@@ -189,9 +200,9 @@ sed -i '/SixXS IPv6/d' config.php
 cd
 
 #if [[ $ether = "eth0" ]]; then
-#	wget -O /etc/iptables.conf $source/Debian7/iptables.up.rules.eth0
+#	wget -O /etc/iptables.conf $source/iptables.up.rules.eth0
 #else
-#	wget -O /etc/iptables.conf $source/Debian7/iptables.up.rules.venet0
+#	wget -O /etc/iptables.conf $source/iptables.up.rules.venet0
 #fi
 
 #sed -i $MYIP2 /etc/iptables.conf;
@@ -319,20 +330,7 @@ chmod +x /usr/bin/clearcache.sh
 chmod +x /usr/bin/bannermenu
 cd
 
-# Blockir Torrent
-iptables -A OUTPUT -p tcp --dport 6881:6889 -j DROP
-iptables -A OUTPUT -p udp --dport 1024:65534 -j DROP
-iptables -A FORWARD -m string --string "get_peers" --algo bm -j DROP
-iptables -A FORWARD -m string --string "announce_peer" --algo bm -j DROP
-iptables -A FORWARD -m string --string "find_node" --algo bm -j DROP
-iptables -A FORWARD -m string --algo bm --string "BitTorrent" -j DROP
-iptables -A FORWARD -m string --algo bm --string "BitTorrent protocol" -j DROP
-iptables -A FORWARD -m string --algo bm --string "peer_id=" -j DROP
-iptables -A FORWARD -m string --algo bm --string ".torrent" -j DROP
-iptables -A FORWARD -m string --algo bm --string "announce.php?passkey=" -j DROP
-iptables -A FORWARD -m string --algo bm --string "torrent" -j DROP
-iptables -A FORWARD -m string --algo bm --string "announce" -j DROP
-iptables -A FORWARD -m string --algo bm --string "info_hash" -j DROP
+
 
 # install squid3
 apt-get -y install squid3
