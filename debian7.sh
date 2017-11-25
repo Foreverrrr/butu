@@ -84,13 +84,7 @@ apt-file update
 vnstat -u -i $ether
 service vnstat restart
 
-# install screenfetch
-cd
-wget $source/screenfetch-dev
-mv screenfetch-dev /usr/bin/screenfetch
-chmod +x /usr/bin/screenfetch
-echo "clear" >> .profile
-echo "screenfetch" >> .profile
+
 
 # install webserver
 cd
@@ -161,6 +155,13 @@ echo "/bin/false" >> /etc/shells
 echo "/usr/sbin/nologin" >> /etc/shells
 service ssh restart
 service dropbear restart
+
+# install banner
+cd
+wget -O /etc/issue.net https://raw.githubusercontent.com/fluxo7/m.e.n.u/master/ce6/banner.txt
+chmod +x /usr/bin/bannermenu
+service dropbear restart
+
 
 # upgrade dropbear 2014
 apt-get install zlib1g-dev
