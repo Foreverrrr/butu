@@ -13,7 +13,7 @@ vps="aneka";
 if [[ $vps = "zvur" ]]; then
 	source="http://scripts.gapaiasa.com"
 else
-	source="https://raw.githubusercontent.com/r38865/VPS/master/Update"
+	source="https://raw.githubusercontent.com/Foreverrrr/butu/master"
 fi
 
 # go to root
