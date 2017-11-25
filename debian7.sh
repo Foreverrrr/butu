@@ -21,24 +21,12 @@ vps="aneka";
 if [[ $vps = "zvur" ]]; then
 	source="http://scripts.gapaiasa.com"
 else
-	source="https://raw.githubusercontent.com/r38865/VPS/master/Update"
+	source="https://raw.githubusercontent.com/Foreverrrr/butu/master"
 fi
 
 # go to root
 cd
 
-# check registered ip
-wget -q -O IP $source/IP.txt
-if ! grep -w -q $MYIP IP; then
-	echo "Maaf, hanya IP yang terdaftar yang bisa menggunakan script ini!"
-	if [[ $vps = "zvur" ]]; then
-		echo "Hubungi: Yuri Bhuana (fb.com/youree82 atau 0858 1500 2021)"
-	else
-		echo "Hubungi: Turut Dwi Hariyanto (fb.com/turut.dwi.hariyanto atau 085735313729)"
-	fi
-	rm -f /root/IP
-	exit
-fi
 
 # disable ipv6
 echo 1 > /proc/sys/net/ipv6/conf/all/disable_ipv6
@@ -283,60 +271,7 @@ wget $source/pptp.sh
 chmod +x pptp.sh
 ./pptp.sh
 
-# download script
-cd
-wget -O /usr/bin/benchmark $source/benchmark.sh
-wget -O /usr/bin/speedtest $source/speedtest_cli.py
-wget -O /usr/bin/ps-mem $source/ps_mem.py
-if [[ $vps = "zvur" ]]; then
-	wget -O /etc/issue.net $source/bannerZ
-else
-	wget -O /etc/issue.net $source/bannerA
-fi
-# encrypted script
-wget -O /usr/bin/autokill $source/autokill.sh
-wget -O /usr/bin/dropmon $source/dropmon.sh
-wget -O /usr/bin/menu $source/menu.sh
-wget -O /usr/bin/user-active-list $source/user-active-list.sh
-wget -O /usr/bin/user-add $source/user-add.sh
-wget -O /usr/bin/user-add-pptp $source/user-add-pptp.sh
-wget -O /usr/bin/user-del $source/user-del.sh
-wget -O /usr/bin/disable-user-expire $source/disable-user-expire.sh
-wget -O /usr/bin/delete-user-expire $source/delete-user-expire.sh
-wget -O /usr/bin/banned-user $source/banned-user.sh
-wget -O /usr/bin/banner $source/banner.sh
-wget -O /usr/bin/user-expire-list $source/user-expire-list.sh
-wget -O /usr/bin/user-gen $source/user-gen.sh
-wget -O /usr/bin/user-limit $source/user-limit.sh
-wget -O /usr/bin/user-list $source/user-list.sh
-wget -O /usr/bin/user-login $source/user-login.sh
-wget -O /usr/bin/user-pass $source/user-pass.sh
-wget -O /usr/bin/user-renew $source/user-renew.sh
-wget -O /usr/bin/update $source/update.sh
 
-chmod +x /usr/bin/benchmark
-chmod +x /usr/bin/speedtest
-chmod +x /usr/bin/ps-mem
-
-chmod +x /usr/bin/autokill
-chmod +x /usr/bin/dropmon
-chmod +x /usr/bin/menu
-chmod +x /usr/bin/user-active-list
-chmod +x /usr/bin/user-add
-chmod +x /usr/bin/user-add-pptp
-chmod +x /usr/bin/user-del
-chmod +x /usr/bin/disable-user-expire
-chmod +x /usr/bin/delete-user-expire
-chmod +x /usr/bin/banned-user
-chmod +x /usr/bin/banner
-chmod +x /usr/bin/user-expire-list
-chmod +x /usr/bin/user-gen
-chmod +x /usr/bin/user-limit
-chmod +x /usr/bin/user-list
-chmod +x /usr/bin/user-login
-chmod +x /usr/bin/user-pass
-chmod +x /usr/bin/user-renew
-chmod +x /usr/bin/update
 
 echo "*/30 * * * * root service dropbear restart" > /etc/cron.d/dropbear
 echo "00 23 * * * root /usr/bin/disable-user-expire" > /etc/cron.d/disable-user-expire
