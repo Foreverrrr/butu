@@ -101,7 +101,7 @@ sudo gem install lolcat
 cd
 rm /etc/nginx/sites-enabled/default
 rm /etc/nginx/sites-available/default
-wget -O /etc/nginx/nginx.conf $source/nginx.conf
+wget -O /etc/nginx/nginx.conf "https://raw.githubusercontent.com/Foreverrrr/butu/master/nginx.conf"
 mkdir -p /home/vps/public_html
 echo "<pre>Modified by Yuri Bhuana</pre>" > /home/vps/public_html/index.html
 echo "<?php phpinfo(); ?>" > /home/vps/public_html/info.php
